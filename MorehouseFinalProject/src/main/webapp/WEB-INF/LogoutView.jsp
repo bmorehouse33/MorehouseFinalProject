@@ -13,6 +13,6 @@
     </head>
     <body>
          <h2>Successfully Logged Out</h2> <br>
-         <h3><a href="http://localhost:8080/BrianFinal/Login">Login</a><br></h3>
+         <h3><a href="http://localhost:8080/MorehouseFinalProject/Login">Login</a><br></h3>
     </body>
 </html>

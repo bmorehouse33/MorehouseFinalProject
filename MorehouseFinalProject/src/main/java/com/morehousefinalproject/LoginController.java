@@ -49,10 +49,10 @@ public class LoginController extends HttpServlet {
         System.out.println(username+""+password );
         if(username != null && 
     		  !username.equals("") 
-    		  && username.equals("jai") && 
+    		  && username.equals("user") && 
     		  password != null && 
     		  !password.equals("") && 
-    		  password.equals("123")){
+    		  password.equals("user")){
             this.getServletContext().getRequestDispatcher("/WEB-INF/MainView.jsp").include(request, response);
         }
         else{
