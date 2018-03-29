@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package com.morehousefinalproject;
+import org.springframework.data.repository.CrudRepository;
+import com.morehousefinalproject.UserModel;
 /**
  *
  * @author Brian Morehouse
  */
-public class ServerConnection {
-    public static void main(String[] args)  {
-        
+public interface UserRepo extends CrudRepository<UserModel, Long> {
     
-    }
 }
