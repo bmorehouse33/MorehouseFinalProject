@@ -6,28 +6,22 @@
 package com.morehousefinalproject;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.util.Iterator;
-import static javafx.application.ConditionalFeature.WEB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.morehousefinalproject.UserModel;
-import com.morehousefinalproject.UserRepo;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Brian Morehouse
  */
 
 public class LoginController extends HttpServlet {
+    Connection conn=null;
+    ResultSet rs=null;
+    PreparedStatement pst=null;
 
 //    @Autowired
 //    private UserRepo userRepo;
@@ -43,36 +37,50 @@ public class LoginController extends HttpServlet {
         
 
         
-        String username=request.getParameter("username");  
-        String password=request.getParameter("password");
-               
-        System.out.println(username+""+password );
-        if(username != null && 
-    		  !username.equals("") 
-    		  && username.equals("user") && 
-    		  password != null && 
-    		  !password.equals("") && 
-    		  password.equals("user")){
-            this.getServletContext().getRequestDispatcher("/WEB-INF/MainView.jsp").include(request, response);
-        }
-        else{
-            this.getServletContext().getRequestDispatcher("/WEB-INF/LoginErrorView.jsp").include(request, response);
-        }
-               
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/LoginView.jsp").include(request, response);
-              
+//        String username=request.getParameter("username");  
+//        String password=request.getParameter("password");
+//               
+//        System.out.println(username+""+password );
+//        if(username != null && 
+//    		  !username.equals("") 
+//    		  && username.equals("user") && 
+//    		  password != null && 
+//    		  !password.equals("") && 
+//    		  password.equals("user")){
+//            this.getServletContext().getRequestDispatcher("/WEB-INF/MainView.jsp").include(request, response);
+//        }
+//        else{
+//            this.getServletContext().getRequestDispatcher("/WEB-INF/LoginErrorView.jsp").include(request, response);
+//        }
+//               
+//    }
+//
+//    @Override
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        
+//        try {
+//            conn=SQLiteConnection.connect();
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+        
+        
+        
+//        SQLiteConnection sqlConnection = new SQLiteConnection();
+//        sqlConnection.connect();
+        
+        
+        //this.getServletContext().getRequestDispatcher("/WEB-INF/LoginView.html").include(request, response);
+                      
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     

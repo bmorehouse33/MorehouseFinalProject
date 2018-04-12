@@ -39,6 +39,7 @@ public class MainViewController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+         this.getServletContext().getRequestDispatcher("/WEB-INF/MainView.jsp").include(request, response);
     }
 
     
@@ -46,6 +47,7 @@ public class MainViewController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+       
     }
 
     @Override

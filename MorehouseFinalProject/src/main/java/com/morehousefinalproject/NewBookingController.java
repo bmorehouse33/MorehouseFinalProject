@@ -51,14 +51,7 @@ public class NewBookingController extends HttpServlet {
 //            
 //            
 //            Connection conn = sqlCon.connect();
-//            
-//            
-//            
-//            
-//            
-//            
-//            
-//            
+
 //        } catch (ClassNotFoundException ex) {
 //            Logger.getLogger(NewBookingController.class.getName()).log(Level.SEVERE, null, ex);
 //        }

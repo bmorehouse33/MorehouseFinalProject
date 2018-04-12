@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCNOEtFaLPCYV91YWLYLZH1th-ZakTPWCk",
+    authDomain: "morehousefinalproject.firebaseapp.com",
+    databaseURL: "https://morehousefinalproject.firebaseio.com",
+    projectId: "morehousefinalproject",
+    storageBucket: "morehousefinalproject.appspot.com",
+    messagingSenderId: "466542440985"
+  };
+  firebase.initializeApp(config);
+</script>
+    
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.7.0/firebaseui.css" />
+    <script type="text/javascript">
+      // FirebaseUI config.
+      var uiConfig = {
+        signInSuccessUrl: '/MorehouseFinalProject/Main',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+  </head>
+  <body>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+    <h2>Login to the Study Room Booking Application</h2>
+    <div id="firebaseui-auth-container"></div>
+  </body>
+</html>
