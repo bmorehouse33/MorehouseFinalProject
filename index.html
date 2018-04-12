@@ -1,78 +1,129 @@
 
-<html theme: jekyll-theme-slate><body{margin: 500px;}>
-<b><h2>Project Proposal</h2></b>
-	
-<p{margin: 200px;}><br>
-	<h3><a href="https://github.com/bmorehouse33/MorehouseFinalProject"> Github repository:https://github.com/bmorehouse33/MorehouseFinalProject</a></h3>	
-<h4>1.Project Description</h4><br>
-
-	For my final project, I have decided to create an application that allows users to check out study rooms based on what date they need the room, how long they will need a study room, and how many study rooms are open.  Users will open the browser and enter the above information and the system will search for which rooms are available for the time selected.  If the criteria for an open room meets the users request, then the user will be able to reserve the study room. If the user inputs a request that does not meet the criteria for an open room, the system will explain the error and have them try inputting a different date, time, and/or location to check out a study room.  Because it will be very hard to input every single building and every single study room in that building on a campus, I will be populating the studyroom building locations and room numbers myself to simulate how the system would work.
-<br><br>
-<h4>2.Project Design</h4><br>
-	I plan to use an SQL database to store the users information as well as the study rooms that are available to check out.  The use cases for my project are allowing users to enter the date, duration, and location to request the study room, allowing users to then reserve the study room, and allowing users to cancel, move, or change their study room request.
-<br><br>
-<h4>3.Project Schedule</h4>
-<br>
-<u>Checkpoint 1</u>
-<ul>
-	<li>Connect to the Server
-		<ul><li>Using Glassfish remote server</ul>
-	<li>Create Views
-		<ul><li>Login View
-			<ul><li>Shows when user types in localhost:8080/MorehouseFinalProject/Login. Allows user to log in with hard coded username "user" and password "user".  User will be able to access rest of application with that input</ul>
-		<li>Main View (Offers options to request a room, check booked rooms, and log out)
-		<li>Schedule a Room View
-			<ul><li>User enters
-				<ul><li>Location (drop down box with all possible locations)
-				<li>Date (enter in dialog box)
-				<li>Time (drop down box with all possible times in 30 minute intervals)</ul></ul>
-
-		<li>Scheduled Study Room List View
-			<ul><li>List of all booked study rooms sorted by location, then date, and then time)</ul>
-			<li>Login View
-			<ul><li>Shows when user types in localhost:8080/MorehouseFinalProject/Login. Allows user to log in with hard coded username "user" and password "user".  User will be able to access rest of application with that input</ul>
-		<li>Logout View
-			<ul><li>Shows when user successfully logs out</ul>
-		<li>Unsuccessful Login view
-			<ul><li>Shows when users submit an invalid username or password</ul></ul>
-
-		</ul>
-<br>		
-<u>Checkpoint 2</u>
-	<ul>
-		<li>Create Login and Registration functionality
-<ul><li>Allow user to register a new account
-			<ul><li>First Name
-			<li>Last Name
-			<li>Username
-			<li>Password</ul>
-	<li>Users will be able to use newly created account info to log into the site</ul>
-	<li>MySQL
-		<ul><li>Create database tables
-			<ul><li>Users
-			<li>Study Rooms
-			<li>Study Room Bookings</ul>
-		<li>Allow program to write to the Users table with registration information
-		<li>Program will grab created account info from database to log into the site through the login view</ul>
-	
-		</ul>	
-<u>Checkpoint 3</u>
-	<ul><li>Add functionality to application
-		<ul><li>Store booking requests in the database
-			<ul><li>Successful booking or unsuccessful booking page opens after user makes input</ul>
-		<li>Scheduled Study Room List displays booked rooms in list form
-		<li>Allow user to modify/delete the study rooms they have booked
-		<li>Allow user to log off out of account</ul>
-	</ul>
-<u>Final Checkpoint</u>
-	<ul><li>Ensure that the user logged on only has editing privilege to rooms they booked themselves
-	<li>Have program remove passed bookings
-	<li>If booking is unsuccessful
-		<ul><li>Explain what the error was
-		<li>Ensure data the user entered is not wiped when going to resubmit request</ul>
-</ul>
-<br><br>
-<h4>4.Project Justification</h4><br>
-	I believe this project is interesting because there is a huge need for a simple way for this to be done. On campus now, the online method of reserving a study room is very difficult and takes some time after you make the request before you know you if you have a guarenteed study room. I end up just calling the library and doing it manually because it is much easier.  If I can create a system that does this very easily and hassle-free, then I think there could be a very important use for it.  This project is a good test of my abilities because it incorporates many different aspects (servers, databases, timers, etc.) and will push me to learn new things that we have not already gone over in class this year or in past years.
-</p>
-</body></html>
+<html theme: jekyll-theme-slate>
+   <body{margin: 500px;}>
+   <b>
+      <h2>Project Proposal</h2>
+   </b>
+   <p{margin: 200px;}><br>
+   <h3><a href="https://github.com/bmorehouse33/MorehouseFinalProject"> Github repository:https://github.com/bmorehouse33/MorehouseFinalProject</a></h3>
+   <h4>1.Project Description</h4>
+   <br>
+   For my final project, I have decided to create an application that allows users to check out study rooms based on what date they need the room, how long they will need a study room, and how many study rooms are open.  Users will open the browser and enter the above information and the system will search for which rooms are available for the time selected.  If the criteria for an open room meets the users request, then the user will be able to reserve the study room. If the user inputs a request that does not meet the criteria for an open room, the system will explain the error and have them try inputting a different date, time, and/or location to check out a study room.  Because it will be very hard to input every single building and every single study room in that building on a campus, I will be populating the studyroom building locations and room numbers myself to simulate how the system would work.
+   <br><br>
+   <h4>2.Project Design</h4>
+   <br>
+   I plan to use an SQL database to store the users information as well as the study rooms that are available to check out.  The use cases for my project are allowing users to enter the date, duration, and location to request the study room, allowing users to then reserve the study room, and allowing users to cancel, move, or change their study room request.
+   <br><br>
+   <h4>3.Project Schedule</h4>
+   <br>
+   <u>Checkpoint 1</u>
+   <ul>
+      <li>
+         Connect to the Server
+         <ul>
+            <li>Using Glassfish remote server
+         </ul>
+      <li>
+         Create Views
+         <ul>
+            <li>
+               Login View
+               <ul>
+                  <li>Shows when user types in localhost:8080/MorehouseFinalProject/Login. Allows user to log in with hard coded username "user" and password "user".  User will be able to access rest of application with that input
+               </ul>
+            <li>Main View (Offers options to request a room, check booked rooms, and log out)
+            <li>
+               Schedule a Room View
+               <ul>
+                  <li>
+                     User enters
+                     <ul>
+                        <li>Location (drop down box with all possible locations)
+                        <li>Date (enter in dialog box)
+                        <li>Time (drop down box with all possible times in 30 minute intervals)
+                     </ul>
+               </ul>
+            <li>
+               Scheduled Study Room List View
+               <ul>
+                  <li>List of all booked study rooms sorted by location, then date, and then time)
+               </ul>
+            <li>
+               Login View
+               <ul>
+                  <li>Shows when user types in localhost:8080/MorehouseFinalProject/Login. Allows user to log in with hard coded username "user" and password "user".  User will be able to access rest of application with that input
+               </ul>
+            <li>
+               Logout View
+               <ul>
+                  <li>Shows when user successfully logs out
+               </ul>
+            <li>
+               Unsuccessful Login view
+               <ul>
+                  <li>Shows when users submit an invalid username or password
+               </ul>
+         </ul>
+   </ul>
+   <br>		
+   <u>Checkpoint 2</u>
+   <ul>
+      <li>
+         Create Login and Registration functionality(using Firebase API)
+         <ul>
+            <li>
+               Allow user to register a new account
+               <ul>
+                  <li>First Name and Last Name
+                  <li>Email
+                  <li>Password
+               </ul>
+            <li>Users will be able to use newly created account info to log into the site
+         </ul>
+      <li>
+         MySQL
+         <ul>
+            <li>
+               Create database tables
+               <ul>
+                  <li>Users (created by the Firebase API)
+                  <li>Study Rooms
+                  <li>Study Room Bookings
+               </ul>
+            <li>Allow program to write to the Users table in Firebase with registration information
+            <li>Program will grab created account info from Firebase to log into the site through the login view
+         </ul>
+   </ul>
+   <u>Checkpoint 3</u>
+   <ul>
+      <li>
+         Add functionality to application
+         <ul>
+            <li>
+               Store booking requests in the database
+               <ul>
+                  <li>Successful booking or unsuccessful booking page opens after user makes input
+               </ul>
+            <li>Scheduled Study Room List displays booked rooms in list form
+            <li>Allow user to modify/delete the study rooms they have booked
+            <li>Allow user to log off out of account
+         </ul>
+   </ul>
+   <u>Final Checkpoint</u>
+   <ul>
+      <li>Ensure that the user logged on only has editing privilege to rooms they booked themselves
+      <li>Have program remove passed bookings
+      <li>
+         If booking is unsuccessful
+         <ul>
+            <li>Explain what the error was
+            <li>Ensure data the user entered is not wiped when going to resubmit request
+         </ul>
+   </ul>
+   <br><br>
+   <h4>4.Project Justification</h4>
+   <br>
+   I believe this project is interesting because there is a huge need for a simple way for this to be done. On campus now, the online method of reserving a study room is very difficult and takes some time after you make the request before you know you if you have a guarenteed study room. I end up just calling the library and doing it manually because it is much easier.  If I can create a system that does this very easily and hassle-free, then I think there could be a very important use for it.  This project is a good test of my abilities because it incorporates many different aspects (servers, databases, timers, etc.) and will push me to learn new things that we have not already gone over in class this year or in past years.
+   </p>
+   </body>
+</html>
