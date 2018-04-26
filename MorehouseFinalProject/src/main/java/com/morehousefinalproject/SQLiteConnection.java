@@ -18,51 +18,54 @@ public class SQLiteConnection {
     
     Connection conn = null;    
 
-    public static Connection connect() throws ClassNotFoundException {
+    public  Connection connect() throws ClassNotFoundException {
 
         try {
             Class.forName("org.sqlite.JDBC");
 
-            Connection conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Brian Morehouse\\Documents\\NetBeansProjects\\MorehouseFinalProject\\MorehouseFinalProject\\src\\main\\java\\com\\morehousefinalproject\\db1.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Brian Morehouse\\Documents\\NetBeansProjects\\MorehouseFinalProject\\MorehouseFinalProject\\src\\main\\java\\com\\morehousefinalproject\\db1.db");
             System.out.println("Connection to SQLite has been established.");
 
             Statement stmt = null;
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM Users;");
-            while (rs.next()) {
-                String FirstName = rs.getString("FirstName");
-                String LastName = rs.getString("LastName");
-                String Username = rs.getString("Username");
-                String Password = rs.getString("Password");
-                System.out.println("First Name = " + FirstName);
-                System.out.println("Last Name = "+LastName);
-                System.out.println("Username = "+Username);
-                System.out.println("Password = "+Password);
-                
-            }
-
             return conn;
-            //String url;
-            // create a connection to the database
-            // url = "jdbc:sqlite:C:\\Users\\Brian Morehouse\\Documents\\NetBeansProjects\\MorehouseFinalProject\\MorehouseFinalProject\\src\\main\\java\\com\\morehousefinalproject\\db1.db";            
-            //conn = DriverManager.getConnection(url);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
-//        } finally {
-//            try {
-//                if (conn != null) {
-//                    conn.close();
-//                }
-//            } catch (SQLException ex) {
-//                System.out.println(ex.getMessage());
-//            }
+
 
         }
 
     }
     
-    
+    public void insertIntoBooking(String userEmail, String location, String date, String startTime, String endTime) throws SQLException, ClassNotFoundException{
+        
+        String sql = "INSERT INTO StudyRoomBooking(UserEmail, Location, Date, StartTime, EndTime) VALUES(?,?, ?, ?, ?)";
+        try(Connection conn = this.connect();
+                PreparedStatement pstmt = conn.prepareStatement(sql)){
+            pstmt.setString(1, userEmail);
+            pstmt.setString(2, location);
+            pstmt.setString(3, date);
+            pstmt.setString(4, startTime);
+            pstmt.setString(5, endTime);
+            pstmt.executeUpdate();
+            conn.close();
+        }
+           
+    }
+    public void deleteFromBooking(int bookingID) throws SQLException, ClassNotFoundException{
+        String sqlDelete = "DELETE FROM StudyRoomBooking WHERE BookingID=(?)";
+        try(
+                PreparedStatement pstmt = conn.prepareStatement(sqlDelete)){
+            pstmt.setInt(1, bookingID);
+            pstmt.executeUpdate();
+            
+        }
+        
+    }
+   
+        
     
 
 }

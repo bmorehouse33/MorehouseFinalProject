@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>User Information</title>
+
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCNOEtFaLPCYV91YWLYLZH1th-ZakTPWCk",
+                authDomain: "morehousefinalproject.firebaseapp.com",
+                databaseURL: "https://morehousefinalproject.firebaseio.com",
+                projectId: "morehousefinalproject",
+                storageBucket: "morehousefinalproject.appspot.com",
+                messagingSenderId: "466542440985"
+            };
+            firebase.initializeApp(config);
+        </script>
+
+        <script type="text/javascript">
+            initApp = function () {
+                firebase.auth().onAuthStateChanged(function (user) {
+                    if (user) {
+                        // User is signed in.
+                        var displayName = user.displayName;
+                        email = user.email;
+                        document.getElementById("myText").value = email;
+                        var emailVerified = user.emailVerified;
+                        var photoURL = user.photoURL;
+                        var uid = user.uid;
+                        var phoneNumber = user.phoneNumber;
+                        var providerData = user.providerData;
+                        user.getIdToken().then(function (accessToken) {
+                            document.getElementById('sign-in-status').textContent = 'Signed in';
+                            document.getElementById('sign-in').textContent = 'Sign out';
+                            document.getElementById('account-details').textContent = JSON.stringify({
+                                displayName: displayName,
+                                email: email,
+                                emailVerified: emailVerified,
+                                phoneNumber: phoneNumber,
+                                photoURL: photoURL,
+                                uid: uid,
+                                accessToken: accessToken,
+                                providerData: providerData
+                            }, null, '  ');
+                        });
+                    } else {
+                        // User is signed out.
+                        document.getElementById('sign-in-status').textContent = 'Signed out';
+                        document.getElementById('sign-in').textContent = 'Sign in';
+                        document.getElementById('account-details').textContent = 'null';
+                    }
+                }, function (error) {
+                    console.log(error);
+                });
+            };
+
+            window.addEventListener('load', function () {
+                initApp()
+            });
+        </script>
+         <script type="text/javascript">
+    window.onload=function(){
+        var auto = setTimeout(function(){ autoRefresh(); }, 0);
+
+        function submitform(){
+          
+          document.forms["myForm"].submit();
+        }
+
+        function autoRefresh(){
+           clearTimeout(auto);
+           auto = setTimeout(function(){ submitform(); autoRefresh(); }, 0);
+        }
+    }
+</script>
+
+    </head>
+    <body>
+        <!--  <body onload="forms.">
+    <h2>Current User Information</h2>
+    <div id="sign-in-status"></div>
+    <div id="sign-in"></div>
+    <div id="account-details"></div>
+  -->
+    
+ <!--    <form name="myForm1" id = "myForm1">  -->
+<!--    <form name="myForm" id="myForm" action="/MorehouseFinalProject/Main"> -->
+        <form name="myForm" id="myForm">
+ <!--           <p>Select email:   </p>   -->
+            <input type="hidden" id="myText" name="email" value="email"><br><br><br>
+ <!--           <input type="submit" name="submit1" value="submit"> -->
+        </form>
+</html>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : BookingListView
-    Created on : Mar 28, 2018, 7:47:10 PM
+    Document   : SuccessfulBooking
+    Created on : Apr 18, 2018, 7:06:36 PM
     Author     : Brian Morehouse
 --%>
 
@@ -9,13 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Booking List</title>
+        <title>Successful Booking</title>
     </head>
     <body>
-        <h1>Booking List</h1>
+        <h1>Success</h1><br><br>
+        <h3>You have successfully booked your study room!</h3><br>
         <h4><a href="http://localhost:8080/MorehouseFinalProject/Main">Back to Main Menu</a></h4>
-        ${BookingList}
         
-
     </body>
 </html>

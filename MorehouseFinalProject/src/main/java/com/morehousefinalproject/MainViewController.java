@@ -6,12 +6,10 @@
 package com.morehousefinalproject;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
@@ -19,35 +17,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 public class MainViewController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
-   
+    String emailText;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-         this.getServletContext().getRequestDispatcher("/WEB-INF/MainView.jsp").include(request, response);
+
+        emailText = request.getParameter("email");
+        if ((emailText == null) || (emailText == "email")) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/UserInfo.html").include(request, response);
+        } else {
+            PersistingData tmp = PersistingData.getInstance();
+            if (emailText.equals("email")) {
+
+                System.out.println(emailText);
+            } else {
+                tmp.StoreData(emailText);
+            }
+
+            this.getServletContext().getRequestDispatcher("/WEB-INF/MainView.jsp").include(request, response);
+        }
+
     }
 
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
+
     }
 
     @Override
